@@ -1,5 +1,5 @@
 import unittest
-from api import BankAPI  # api.py должен лежать в корне рядом с tests
+from ananko_pythonCource.lab_6.api import BankAPI  # api.py должен лежать в корне рядом с tests
 
 class TestBankAPI(unittest.TestCase):
     def setUp(self):
