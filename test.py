@@ -202,8 +202,18 @@ class TestBankAPI(unittest.TestCase):
         expected = None
         self.assertEqual(actual, expected)
 
-
     def test_get_transactions(self):
+        actual = self.api.get_transactions(1)
+        expected_sender_id = 1
+        expected_amount = 100.0
+        self.assertEqual(actual[0]['account_sender_id'], expected_sender_id)
+        self.assertEqual(actual[0]['sent_amount'], expected_amount)
+
+        start_date = '2023-01-01'
+        end_date = '2023-01-02'
+        actual = self.api.get_transactions(1, start_date, end_date)
+        expected_count = 6
+        self.assertEqual(len(actual), expected_count)
 
         actual = self.api.get_transactions(3)
         expected_count = 0
