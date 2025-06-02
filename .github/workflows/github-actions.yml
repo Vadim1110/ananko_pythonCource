@@ -25,8 +25,10 @@ jobs:
           pip install -r requirements.txt || echo "No requirements.txt found"
 
       - name: Set PYTHONPATH
-        run: echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
+        run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)" >> $GITHUB_ENV
+
 
       - name: Run tests
         run: |
           python -m unittest discover -s tests -p "test_*.py"
+      
